@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Register</title>
+    <th:block th:include="fragment/general.html :: headerfiles"></th:block>
+    <link th:href="@{/css/register.css}" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="register-wrapper">
+    <form class="bg-light card" th:action="@{/api/auth/register}" th:object="${user}" method="post">
+        <div class="row">
+            <h1 class="h1 mb-4">Register</h1>
+
+            <!-- Username input -->
+            <div class="col-md-6">
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="username">Username</label>
+                    <input type="text" id="username" th:field="*{username}" class="form-control" required/>
+                </div>
+            </div>
+
+            <!-- Password input -->
+            <div class="col-md-6">
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="password">Password</label>
+                    <input type="password" id="password" th:field="*{password}" class="form-control" required/>
+                </div>
+            </div>
+
+            <!-- Name input -->
+            <div class="col-md-6">
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="name">Name</label>
+                    <input type="text" id="name" th:field="*{name}" class="form-control" required/>
+                </div>
+            </div>
+
+            <!-- Email input -->
+            <div class="col-md-6">
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="email">Email</label>
+                    <input type="email" id="email" th:field="*{email}" class="form-control" required/>
+                </div>
+            </div>
+
+            <!-- Register button -->
+            <div class="col-md-12">
+                <button type="submit" class="w-100 btn btn-primary btn-block my-4">Register</button>
+            </div>
+
+            <!-- Login link -->
+            <div class="text-center">
+                <p>Already have an account? <a href="/login">Login here!</a></p>
+            </div>
+        </div>
+    </form>
+    <div class="error card bg-danger text-white m-1" th:if="${param.error}">
+        <div class="card-body">
+            Failed to register user!
+        </div>
+    </div>
+</div>
+</body>
+</html>

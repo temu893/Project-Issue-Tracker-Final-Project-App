@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Please log in</title>
+    <th:block th:include="fragment/general.html :: headerfiles"></th:block>
+    <link th:href="@{/css/login.css}" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="login-wrapper">
+    <form class="bg-light card" th:action="@{/login}" method="post">
+        <h1 class="h1 mb-4">Please Login!</h1>
+
+        <!-- Username input -->
+        <div class="form-outline mb-4">
+            <label class="form-label" for="username">Username</label>
+            <input type="text" id="username" name="username" class="form-control" required/>
+        </div>
+
+        <!-- Password input -->
+        <div class="form-outline mb-4">
+            <label class="form-label" for="password">Password</label>
+            <input type="password" id="password" name="password" class="form-control" required/>
+        </div>
+
+        <!-- Login button -->
+        <button type="submit" class="btn btn-primary btn-block mb-4">Login</button>
+
+        <!-- Register link -->
+        <div class="text-center">
+            <p>Don't have an account? <a href="/register">Register here!</a></p>
+        </div>
+    </form>
+
+    <!-- Login error message -->
+    <div class="error card bg-danger text-white m-1" th:if="${param.error}">
+        <div class="card-body">
+            Invalid username or password.
+        </div>
+    </div>
+
+    <!-- Logout success message -->
+    <div class="log-out card bg-success text-white m-1" th:if="${param.logout}">
+        <div class="card-body">
+            You have been logged out.
+        </div>
+    </div>
+
+    <!-- Registered success message -->
+    <div class="log-out card bg-success text-white m-1" th:if="${param.registered}">
+        <div class="card-body">
+            Your registration was successful! You are now able to log in.
+        </div>
+    </div>
+</div>
+
+<th:block th:include="fragment/general.html :: js-scripts"></th:block>
+</body>
+</html>

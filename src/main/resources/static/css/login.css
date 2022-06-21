@@ -1,0 +1,19 @@
+body {
+    height: 100vh;
+}
+
+.login-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    flex-direction: column;
+}
+
+form {
+    padding: 30px;
+}
+
+form, .error, .log-out {
+    width: 22em;
+}
