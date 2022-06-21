@@ -55,7 +55,9 @@
             <td th:text="${issue.resolutionSummary}"></td>
             <td>
                 <a th:href = "@{'/issue/'+${issue.id}+'/update'}" class = "btn btn-info mb-2"> Update </a>
-                <a th:href = "@{/deleteProject}" class = "btn btn-info mb-2"> Delete </a>
+<!--                <a th:href = "@{/deleteProject}" class = "btn btn-info mb-2"> Delete </a>-->
+                <button th:onclick="'onDeleteIssueClicked(\''+${issue.id}+'\')'" class = "btn btn-info mb-2"> Delete </button>
+
             </td>
         </tr>
         </tbody>
@@ -79,5 +81,7 @@
 				});
 			})
 </script>
+<script src="/js/issuetOverview.js" type="text/javascript"></script>
+
 </body>
 </html>

@@ -26,6 +26,13 @@
 <div class = "container">
     <h2>List of project</h2>
     <hr/>
+    <h1>
+    <a>
+        Welcome
+        <span class="name" th:text="${#authentication.getName()}"></span>
+    </a>
+    </h1>
+    <hr/>
     <a th:href="@{/project/new}" class="btn btn-primary mb-2">Add Project</a>
 
    <table class = "table table-bordered table-striped" id = "projectTable">

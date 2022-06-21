@@ -2,11 +2,8 @@ package com.temesgenbesha.projectmanagementsystem.service;
 
 import com.temesgenbesha.projectmanagementsystem.dto.IssueDTO;
 import com.temesgenbesha.projectmanagementsystem.entity.Issue;
-import com.temesgenbesha.projectmanagementsystem.entity.Priority;
 import com.temesgenbesha.projectmanagementsystem.entity.Project;
-import com.temesgenbesha.projectmanagementsystem.entity.Status;
 import com.temesgenbesha.projectmanagementsystem.entity.User;
-import com.temesgenbesha.projectmanagementsystem.exception.IssueNotFoundException;
 import com.temesgenbesha.projectmanagementsystem.exception.ProjectNotFoundException;
 import com.temesgenbesha.projectmanagementsystem.repository.IssueRepository;
 import com.temesgenbesha.projectmanagementsystem.repository.ProjectRepository;
@@ -22,7 +19,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
+
 @Service
 @RequiredArgsConstructor
 @Slf4j
@@ -80,6 +77,7 @@ public class IssueServiceImpl implements IssueService {
         Issue issue = issueRepository.getById(issueId);
         issue.setSummary(issueDTO.getSummary());
         issue.setDescription(issueDTO.getDescription());
+        issue.setResolutionSummary(issueDTO.getResolutionSummary());
         issue.setAssignedTo(userRepository.findById(Long.parseLong(issueDTO.getAssignedTo())).get());
         issue.setAssignedOn(LocalDateTime.now());
         issue.setStatus(issueDTO.getStatus());
@@ -93,7 +91,6 @@ public class IssueServiceImpl implements IssueService {
         log.info("Updated issue ", issue);
         return issue;
     }
-
 
     @Override
     public Issue addIssue(IssueDTO issueDTO) {
@@ -122,6 +119,12 @@ public class IssueServiceImpl implements IssueService {
         issue = issueRepository.save(issue);
         log.info("Created new issue ", issue);
         return issue;
+
+    }
+
+    @Override
+    public void deleteIssue(Long id) {
+        issueRepository.deleteById(id);
 
     }
 }

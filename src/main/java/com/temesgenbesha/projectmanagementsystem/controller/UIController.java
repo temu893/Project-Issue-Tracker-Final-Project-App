@@ -32,6 +32,11 @@ public class UIController {
         return "login";
     }
 
+    @GetMapping("/contact")
+    public String contact() {
+        return "contact";
+    }
+
     @GetMapping("/register")
     public String register(Model model) {
         model.addAttribute("user", new RegisterUserDTO());

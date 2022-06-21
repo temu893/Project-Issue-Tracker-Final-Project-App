@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Register</title>
+    <th:block th:include="fragment/general.html :: headerfiles"></th:block>
+    <link th:href="@{/css/register.css}" rel="stylesheet" type="text/css">
+</head>
+<body>
+<header th:replace="fragment/contactGeneral.html :: header"></header>
+<div class="register-wrapper">
+
+        <form class="bg-light card" th:action="@{/contact}" method="post" onsubmit="sendEmail(); reset(); return false;">
+
+        <div class="row">
+            <h1 class="h1 mb-4">Contact Form</h1>
+
+            <input type="text" id="name" placeholder="Your Name" class="form-control" required/>
+            <input type="email" id="email" placeholder="Email Address" class="form-control" required/>
+            <textarea type="message"  rows="4" placeholder="How can we help you" class="form-control"></textarea>
+
+            <!-- Username input -->
+            <div class="col-md-12">
+                <button type="submit" class="w-100 btn btn-primary btn-block my-4">Send</button>
+            </div>
+
+            <!-- Login link -->
+            <div class="text-center">
+                <p>Already have an account? <a href="/login">Login here!</a></p>
+            </div>
+        </div>
+    </form>
+
+</div>
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+<script>
+    function sendEmail() {
+        Email.send({
+            Host : "smtp.gmail.com",
+            Username : "me@gmail.com",
+            Password : "password",
+            To : 'temu893@gmail.com',
+            From : document.getElementById("email").value,
+            Subject : "New contact form",
+            Body : "Name: " + document.getElementById("name").value +
+                "<br> Email: " + document.getElementById()
+        }).then(
+            message => alert(message)
+        );
+    }
+
+</script>
+</body>
+</html>

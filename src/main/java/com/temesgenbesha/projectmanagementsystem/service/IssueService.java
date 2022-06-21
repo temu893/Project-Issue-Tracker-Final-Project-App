@@ -19,4 +19,5 @@ public interface IssueService {
     Issue addIssue(IssueDTO issueDTO);
 
 
+    void deleteIssue(Long id);
 }

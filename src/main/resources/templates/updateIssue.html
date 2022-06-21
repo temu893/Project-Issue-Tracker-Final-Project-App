@@ -20,7 +20,7 @@
             <!-- Issue Summery input -->
             <div class="col-md-6 mb-2">
                 <div class="form-outline mb-4">
-                    <label class="form-label" for="summary">Issue Summery</label>
+                    <label class="form-label" for="summary">Issue Summary</label>
                     <input type="text" id="summary" th:value="${issue.summary}" th:field="*{summary}" class="form-control col-4 mb-4" required/>
                 </div>
             </div>
@@ -30,6 +30,12 @@
                 <div class="form-outline mb-4">
                     <label class="form-label" for="description">Issue Description</label>
                     <input type="text" id="description" th:value="${issue.description}" th:field="*{description}" class="form-control col-4 mb-4 " required/>
+                </div>
+            </div>
+            <div class="col-md-6 mb-2">
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="description">Resolution Summary</label>
+                    <input type="text" id="resolutionSummery" th:value="${issue.resolutionSummary}" th:field="*{resolutionSummary}" class="form-control col-4 mb-4 " required/>
                 </div>
             </div>
             <!-- Issue assigned To input -->

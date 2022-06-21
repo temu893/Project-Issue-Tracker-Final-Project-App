@@ -64,5 +64,11 @@ public class IssueController {
         return "redirect:/project/"+updatedIssue.getProject().getId()+"/issue";
     }
 
+    @DeleteMapping("(/{id}")
+    public ResponseEntity<Void> deleteIssue(@PathVariable Long id) {
+        issueService.deleteIssue(id);
+        return ResponseEntity.ok().build();
+    }
+
 
 }
