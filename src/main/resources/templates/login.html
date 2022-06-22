@@ -52,6 +52,12 @@
             Your registration was successful! You are now able to log in.
         </div>
     </div>
+
+    <div class="log-out card bg-success text-white m-1" th:if="${param.contacted}">
+        <div class="card-body">
+            Message sent Successfully
+        </div>
+    </div>
 </div>
 
 <th:block th:include="fragment/general.html :: js-scripts"></th:block>

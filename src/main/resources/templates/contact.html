@@ -9,14 +9,14 @@
 <header th:replace="fragment/contactGeneral.html :: header"></header>
 <div class="register-wrapper">
 
-        <form class="bg-light card" th:action="@{/contact}" method="post" onsubmit="sendEmail(); reset(); return false;">
+        <form class="bg-light card" th:action="@{/api/auth/contact}" method="post" onsubmit="sendEmail(); reset(); return false; ">
 
         <div class="row">
             <h1 class="h1 mb-4">Contact Form</h1>
 
             <input type="text" id="name" placeholder="Your Name" class="form-control" required/>
             <input type="email" id="email" placeholder="Email Address" class="form-control" required/>
-            <textarea type="message"  rows="4" placeholder="How can we help you" class="form-control"></textarea>
+            <textarea type="message"  rows="3" placeholder="How can we help you" class="form-control"></textarea>
 
             <!-- Username input -->
             <div class="col-md-12">
@@ -42,9 +42,10 @@
             From : document.getElementById("email").value,
             Subject : "New contact form",
             Body : "Name: " + document.getElementById("name").value +
-                "<br> Email: " + document.getElementById()
+                "<br> Email: " + document.getElementById("email").value +
+                "<br> Message: " + document.getElementById("message").value
         }).then(
-            message => alert(message)
+            message => alert("Message sent Successfully")
         );
     }
 

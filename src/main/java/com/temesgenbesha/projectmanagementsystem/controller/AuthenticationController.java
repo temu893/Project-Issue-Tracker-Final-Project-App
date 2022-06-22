@@ -26,6 +26,12 @@ public class AuthenticationController {
         response.sendRedirect("/login?registered");
     }
 
+    @PostMapping("/contact")
+    public void contactForm(HttpServletResponse response) throws IOException {
+
+        response.sendRedirect("/login?contacted");
+    }
+
     @GetMapping("/logout")
     public void logoutUser(HttpServletResponse response) throws IOException {
         authenticationService.logout();

@@ -35,6 +35,7 @@ public class UIController {
     @GetMapping("/contact")
     public String contact() {
         return "contact";
+
     }
 
     @GetMapping("/register")

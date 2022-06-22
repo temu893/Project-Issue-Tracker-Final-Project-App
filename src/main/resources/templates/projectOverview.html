@@ -35,6 +35,7 @@
     <hr/>
     <a th:href="@{/project/new}" class="btn btn-primary mb-2">Add Project</a>
 
+<!--id = project table will also call jquery data table-->
    <table class = "table table-bordered table-striped" id = "projectTable">
        <thead>
        <hr/>
@@ -105,11 +106,16 @@
 <!--    <h2>Projects not available</h2>-->
 <!--</div>-->
 
+
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
+
+<!--Add JQuery Datatable to provide searching,sorting,paging out of the box functionalities-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.js"></script>
+<!--by adding jquery data table to html table we can have searching, sorting functionality in the web app-->
 <script>
 			$(document).ready(function() {
 				$("#projectTable").DataTable({
