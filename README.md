@@ -1,4 +1,14 @@
-# Project-Issue-Tracker-Final-Projec
+# Project-Issue-Tracker-Final-Capstone
+
+Easy way to access this project is:- inside the application property you can just comment out the MySQL database and uncomment the h2 driver so that way you don't have to set up the database.
+
+
+after you do that just run the application and vist http://localhost:8080 in your browser 
+
+
+
+
+
 This project is for my Java Full Stack developer Bootcamp final 
 Deliverable: A Java web application developed using Spring Boot
 A complete working application is due by Wednesday, 6/22/22, at midnight.
