@@ -31,6 +31,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
+                //disable csrf to prevent the csrf attack through authentication
+                // cors will allow the communication between the user and the server
                 .csrf().disable().cors()
                 .and()
                 .authorizeRequests()

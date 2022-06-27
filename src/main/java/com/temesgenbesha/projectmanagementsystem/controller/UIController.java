@@ -67,6 +67,7 @@ public class UIController {
         return "updateProject";
     }
 
+
     @GetMapping("/project/{id}/issue")
     public String getIssueFromSpecificProject(Model model, @PathVariable Long id) {
         try {

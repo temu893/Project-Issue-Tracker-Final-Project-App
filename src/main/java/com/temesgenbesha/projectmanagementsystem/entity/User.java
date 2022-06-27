@@ -34,10 +34,10 @@ public class User {
     private String username;
     private String password;
     private ZonedDateTime createdOn;
-    private ZonedDateTime modifiedOn;
+//    private ZonedDateTime modifiedOn;
 
-    @OneToOne
-    private User modifiedBy;
+//    @OneToOne
+//    private User modifiedBy;
 
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<Project> assignedProjects;

@@ -19,12 +19,12 @@
             <input type="hidden" name="projectID" th:value="${projectID}">
             <h1 class = "h1 mb-4">Create New Issue</h1>
             <!-- Issue Summery input -->
-            <div class="col-md-6 mb-2">
-                <div class="form-outline mb-4">
-                    <label class="form-label" for="summary">Issue Summery</label>
-                    <input type="text" id="summary" th:field="*{summary}" class="form-control col-4 mb-4" required/>
-                </div>
-            </div>
+<!--            <div class="col-md-6 mb-2">-->
+<!--                <div class="form-outline mb-4">-->
+<!--                    <label class="form-label" for="summary">Issue Summery</label>-->
+<!--                    <input type="text" id="summary" th:field="*{summary}" class="form-control col-4 mb-4" required/>-->
+<!--                </div>-->
+<!--            </div>-->
 
             <!-- Issue description input -->
             <div class="col-md-6 mb-2">
@@ -33,8 +33,14 @@
                     <input type="text" id="description" th:field="*{description}" class="form-control col-4 mb-4 " required/>
                 </div>
             </div>
+            <div class="col-md-6 mb-2">
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="comment">Comment</label>
+                    <input type="text" id="comment" th:field="*{comment}" class="form-control col-4 mb-4 " />
+                </div>
+            </div>
             <!-- Issue assigned To input -->
-<!--            list of users that are in the data base-->
+<!--            list of users that are in the database-->
             <div class="col-md-6 mb-2">
                 <div class="form-outline mb-4">
                     <label class="form-label" for="assignedTo">Assigned To</label>

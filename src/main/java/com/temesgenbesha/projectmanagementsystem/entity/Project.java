@@ -30,6 +30,7 @@ public class Project {
     private String name;
 
     private String projectDescription;
+
 //    @DateTimeFormat(pattern = "yyyy-MM-ddhh:mm")
     private LocalDateTime startDate;
    // @DateTimeFormat(pattern = "yyyy-MM-ddhh:mm")
@@ -41,10 +42,12 @@ public class Project {
 
     @OneToOne
     private User createdBy;
-    private LocalDateTime modifiedOn;
+    private LocalDateTime modifiedOn = null;
 
     @OneToOne
-    private User modifiedBy;
+    private User modifiedBy= null;
+
+
 
     @Override
     public boolean equals(Object o) {

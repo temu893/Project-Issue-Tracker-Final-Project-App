@@ -12,6 +12,7 @@ public class IssueDTO {
     private Long id;
     private String summary;
     private String description;
+    private String comment;
     private String createdBy;
     private LocalDateTime createdOn;
     private String assignedTo;

@@ -14,10 +14,15 @@ import java.util.Collection;
 @Getter
 public class CustomUserPrincipal implements UserDetails {
 
+    //the interface UserDetails forces us to implements this methods
     private final User user;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
+        // spring security doesn't work with our role entity it works with its own authority entity so i mapped the role
+        //entity to grantedAuthority role entity
+
+        //convert the roles to granted authorities by getting the name of the roles and map to the granted authority
         return user.getRoles().stream().map(Role::getName).map(SimpleGrantedAuthority::new).toList();
     }
 

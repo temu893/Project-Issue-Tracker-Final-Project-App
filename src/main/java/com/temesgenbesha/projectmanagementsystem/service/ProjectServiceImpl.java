@@ -49,11 +49,13 @@ public class ProjectServiceImpl implements ProjectService {
         User userData = ((CustomUserPrincipal) principal).getUser();
         List<Project> projects = projectRepository.findAll();
         List<Project> result = new ArrayList<>();
+//        if the project created and the user id and createdBy id is equal the project will assign under createdby id
         if(projects.size()>0) {
             for (int i = 0; i < projects.size(); i++) {
                 if (projects.get(i).getCreatedBy().getId()==userData.getId()){
                     result.add(projects.get(i));
                 }else {
+                    // if the issue is assigne to the user id the project also will assign under the assign id
                     List<Issue> issues = issueService.getIssueFromProjectByAssignedToAndCreatedBy(projects.get(i).getId());
                     if (issues.size() > 0) {
                         result.add(projects.get(i));
@@ -100,6 +102,7 @@ public class ProjectServiceImpl implements ProjectService {
 
         project.setName(projectDTO.getName());
         project.setProjectDescription(projectDTO.getProjectDescription());
+
         project.setActualEndDate(projectDTO.getActualEndDate());
         project.setModifiedBy(authenticationService.getUserInfo().toEntity());
         project.setModifiedOn(LocalDateTime.now());

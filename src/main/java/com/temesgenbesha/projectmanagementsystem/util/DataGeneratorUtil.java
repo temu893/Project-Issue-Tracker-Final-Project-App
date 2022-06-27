@@ -42,6 +42,7 @@ public class DataGeneratorUtil implements CommandLineRunner {
         roleRepository.save(adminRole);
 
         User admin = new User();
+
         admin.setName("Temu Beesha");
         admin.setEmail("temub@email.com");
         admin.setUsername("temub");
@@ -60,8 +61,6 @@ public class DataGeneratorUtil implements CommandLineRunner {
         user1.setUsername("mm");
         user1.setPassword(passwordEncoder.encode("63274ghedbc"));
         user1.setCreatedOn(ZonedDateTime.now().minusDays(1L));
-        user1.setModifiedBy(admin);
-        user1.setModifiedOn(ZonedDateTime.now());
         user1.setAssignedProjects(Collections.emptySet());
         user1.setRoles(Set.of(userRole));
         user1 = userRepository.save(user1);

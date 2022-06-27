@@ -28,6 +28,7 @@ public class Issue {
 
     private String summary;
     private String description;
+    private String comment;
 
     @OneToOne
     private User createdBy;

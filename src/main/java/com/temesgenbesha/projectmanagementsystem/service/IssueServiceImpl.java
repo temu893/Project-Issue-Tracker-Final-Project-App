@@ -77,6 +77,7 @@ public class IssueServiceImpl implements IssueService {
         Issue issue = issueRepository.getById(issueId);
         issue.setSummary(issueDTO.getSummary());
         issue.setDescription(issueDTO.getDescription());
+        issue.setComment(issueDTO.getComment());
         issue.setResolutionSummary(issueDTO.getResolutionSummary());
         issue.setAssignedTo(userRepository.findById(Long.parseLong(issueDTO.getAssignedTo())).get());
         issue.setAssignedOn(LocalDateTime.now());
@@ -106,6 +107,7 @@ public class IssueServiceImpl implements IssueService {
         Issue issue = new Issue();
         issue.setSummary(issueDTO.getSummary());
         issue.setDescription(issueDTO.getDescription());
+        issue.setComment(issueDTO.getComment());
         issue.setCreatedBy(((CustomUserPrincipal) principal).getUser());
         issue.setCreatedOn(LocalDateTime.now());
         issue.setAssignedTo(userRepository.findById(Long.parseLong(issueDTO.getAssignedTo())).get());
