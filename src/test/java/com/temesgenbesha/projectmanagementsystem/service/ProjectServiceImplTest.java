@@ -98,7 +98,7 @@ class ProjectServiceImplTest {
                 .isInstanceOf(ProjectNotFoundException.class);
     }
     @Test
-    void testDeleteProject() {
+    void testDeleteProject() throws Exception {
         // Setup
         // Run the test
         projectServiceImplUnderTest.deleteProject(0L);

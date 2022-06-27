@@ -18,5 +18,6 @@ public interface ProjectService {
 
     void deleteProject(Long id);
 
+
     ProjectDTO updateProject(Long id, ProjectDTO projectDTO) throws ProjectNotFoundException;
 }

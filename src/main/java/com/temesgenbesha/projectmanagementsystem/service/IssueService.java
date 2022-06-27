@@ -1,6 +1,7 @@
 package com.temesgenbesha.projectmanagementsystem.service;
 
 import com.temesgenbesha.projectmanagementsystem.dto.IssueDTO;
+import com.temesgenbesha.projectmanagementsystem.dto.ProjectDTO;
 import com.temesgenbesha.projectmanagementsystem.entity.Issue;
 import com.temesgenbesha.projectmanagementsystem.exception.ProjectNotFoundException;
 
@@ -20,4 +21,5 @@ public interface IssueService {
 
 
     void deleteIssue(Long id);
+
 }

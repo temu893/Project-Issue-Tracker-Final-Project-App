@@ -1,6 +1,7 @@
 package com.temesgenbesha.projectmanagementsystem.service;
 
 import com.temesgenbesha.projectmanagementsystem.dto.ProjectDTO;
+import com.temesgenbesha.projectmanagementsystem.dto.UserDTO;
 import com.temesgenbesha.projectmanagementsystem.entity.Issue;
 import com.temesgenbesha.projectmanagementsystem.entity.Project;
 import com.temesgenbesha.projectmanagementsystem.entity.User;
@@ -10,13 +11,13 @@ import com.temesgenbesha.projectmanagementsystem.repository.UserRepository;
 import com.temesgenbesha.projectmanagementsystem.security.CustomUserPrincipal;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 
@@ -32,7 +33,7 @@ public class ProjectServiceImpl implements ProjectService {
     private final UserRepository userRepository;
 
     private final ProjectRepository projectRepository;
-    @Autowired
+
     private final IssueService issueService;
 
     private final AuthenticationService authenticationService;
@@ -51,14 +52,14 @@ public class ProjectServiceImpl implements ProjectService {
         List<Project> result = new ArrayList<>();
 //        if the project created and the user id and createdBy id is equal the project will assign under createdby id
         if(projects.size()>0) {
-            for (int i = 0; i < projects.size(); i++) {
-                if (projects.get(i).getCreatedBy().getId()==userData.getId()){
-                    result.add(projects.get(i));
-                }else {
+            for (Project project : projects) {
+                if (Objects.equals(project.getCreatedBy().getId(), userData.getId())) {
+                    result.add(project);
+                } else {
                     // if the issue is assigne to the user id the project also will assign under the assign id
-                    List<Issue> issues = issueService.getIssueFromProjectByAssignedToAndCreatedBy(projects.get(i).getId());
+                    List<Issue> issues = issueService.getIssueFromProjectByAssignedToAndCreatedBy(project.getId());
                     if (issues.size() > 0) {
-                        result.add(projects.get(i));
+                        result.add(project);
                     }
                 }
             }
@@ -68,7 +69,7 @@ public class ProjectServiceImpl implements ProjectService {
 
     @Override
     public ProjectDTO getProjectById(Long id) throws Exception {
-//        Optional<ProjectDto> projectOptional = projectRepository.findById(id);
+// //       Optional<ProjectDto> projectOptional = projectRepository.findById(id);
 //        if(projectOptional.isEmpty()) throw new Exception();
 //        return projectOptional.get();
 
@@ -92,7 +93,8 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
-    public void deleteProject(Long id) {
+    public void deleteProject(Long id)  {
+
         projectRepository.deleteById(id);
     }
 

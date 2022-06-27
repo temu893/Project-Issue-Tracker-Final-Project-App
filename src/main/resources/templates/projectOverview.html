@@ -66,9 +66,14 @@
            <td>
                <a th:href="@{'/project/' + ${project.id} + '/issue'}" class="btn btn-info mb-2">Issues</a>
                <a th:href="@{'/project/' + ${project.id} + '/update'}" class="btn btn-info mb-2">Update</a>
-               <button th:onclick="'onDeleteProjectClicked(\'' + ${project.id} + '\')'" class="btn btn-info mb-2">
-                   Delete
-               </button>
+               <!--/*@thymesVar id="username" type="java"*/-->
+               <div th:if="project.createdBy.username">
+                   <button th:onclick="'onDeleteProjectClicked(\'' + ${project.id} + '\')'" class="btn btn-info mb-2">
+                       Delete
+                   </button>
+               </div>
+
+
            </td>
        </tr>
        </tbody>

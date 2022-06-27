@@ -32,13 +32,14 @@ public class ProjectController {
     }
 
     @PostMapping("/{id}")
+
     public void updateProject(@PathVariable Long id, @ModelAttribute("project") ProjectDTO projectDTO, HttpServletResponse response) throws ProjectNotFoundException, IOException {
         projectService.updateProject(id, projectDTO);
         response.sendRedirect("/overview?updated");
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteProject(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteProject(@PathVariable Long id) throws Exception {
         projectService.deleteProject(id);
         return ResponseEntity.ok().build();
     }
